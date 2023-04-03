@@ -177,7 +177,7 @@ EOF
 	print <<EOF;
 choice
 	prompt "Target System"
-	default TARGET_x86
+	default TARGET_ipq807x
 	reset if !DEVEL
 	
 EOF
