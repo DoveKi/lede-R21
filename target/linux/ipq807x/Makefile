@@ -16,6 +16,6 @@ DEFAULT_PACKAGES += \
 	kmod-leds-gpio kmod-gpio-button-hotplug \
 	ath11k-firmware-ipq8074 kmod-ath11k-ahb \
 	wpad-openssl kmod-qca-nss-dp kmod-qca-nss-drv-64 kmod-qca-nss-drv-pppoe-64 kmod-qca-nss-ecm-64 nss-firmware-ipq8074 \
-	autocore-arm htop
+	autocore-arm htop iperf3
 
 $(eval $(call BuildTarget))
