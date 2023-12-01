@@ -49,11 +49,15 @@
 		local user_info = luci.sys.exec("cat /proc/net/arp | grep 'br-lan' | grep '0x2' | wc -l")
 
 		local cpu_usage = luci.sys.exec("top -n1 | awk '/^CPU/ { printf(\"%d%%\", 100 - $8) }'") or "6%"
+
+		local nss_usage = luci.sys.exec("/sbin/nssinfo") or "?"
+
 		local cpu_info = luci.sys.exec("/sbin/cpuinfo") or "ARM Processor x 0 (233MHz, 2.3°C)"
 
 		local rv = {
 			cpuinfo    = cpu_info,
 			cpuusage   = cpu_usage,
+			nssusage   = nss_usage,
 			userinfo   = user_info,
 			uptime     = sysinfo.uptime or 0,
 			localtime  = os.date(),
@@ -655,6 +659,9 @@
 			if (e = document.getElementById('cpuusage'))
 				e.innerHTML = info.cpuusage;
 
+                        if (e = document.getElementById('nssusage'))
+                                e.innerHTML = info.nssusage;
+
 			if (e = document.getElementById('cpuinfo'))
 				e.innerHTML = info.cpuinfo;
 
@@ -715,6 +722,7 @@
 		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
 		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
 		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
+		<tr><td width="33%"><%:NSS usage (%)%></td><td id="nssusage">-</td></tr>
 	</table>
 </fieldset>
 
