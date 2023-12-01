@@ -47,7 +47,7 @@ DEFAULT_PACKAGES.router:=\
 	ppp \
 	ppp-mod-pppoe \
 	luci-newapi block-mount coremark kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw \
-	default-settings luci luci-app-turboacc
+	curl nano default-settings luci luci-app-turboacc
 
 ifneq ($(DUMP),)
   all: dumpinfo
